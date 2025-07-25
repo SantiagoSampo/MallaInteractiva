@@ -162,26 +162,50 @@ g.subject.disabled text {
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 768px) {
+  html, body {
+    min-width: 1220px !important;
+    overflow-x: scroll !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch; /* Para scroll suave en iOS */
+  }
+  
   body {
     min-width: 1220px !important;
     overflow-x: scroll !important;
-    -webkit-overflow-scrolling: touch; /* Para scroll suave en iOS */
   }
   
   .container-fluid {
     min-width: 1220px !important;
-    overflow-x: auto !important;
+    overflow-x: visible !important;
+    width: 1220px !important;
   }
   
   svg {
     min-width: 1210px !important;
+    width: 1210px !important;
+  }
+  
+  /* Asegurar que el overlay no interfiera con el scroll */
+  .overlay {
+    width: 100vw !important;
+    overflow-x: hidden !important;
   }
 }
 
 /* Para tablets */
 @media screen and (max-width: 1024px) and (min-width: 769px) {
+  html, body {
+    min-width: 1220px !important;
+    overflow-x: auto !important;
+  }
+  
   body {
     min-width: 1220px !important;
     overflow-x: auto !important;
+  }
+  
+  .container-fluid {
+    min-width: 1220px !important;
+    width: 1220px !important;
   }
 }
