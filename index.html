@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos.css">
+    
+    <title>Malla Ing.Sistemas-ORT</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">Malla Interactiva de Ingeniería en Sistemas - ORT</h1>
+    </header>
+    <div id="overlay" class="overlay" onclick="removePopUp()">
+    <div class="overlay-content" onclick="removePopUp()">
+        <div class="container-fluid align-middle py-2">
+        <div class="row justify-content-center align-items-center">
+            <div class="col col-md-8 cik-xl-6">
+            <h1 class="text-center">¡Malla Interactiva de Ingeniería en Sistemas!</h1>
+            <h5 class="text-center mx-auto" style="max-width:500px">
+                El impulso para la realización de esta página fue la motivación de los estudiantes al momento de cursar sus materias. Una vez que una asignatura esté aprobada, se podrá hacer click sobre ella para marcarla como tal, lo que a su vez habilitará la posibilidad de hacer click en aquellas materias que la tengan como prerrequisito.
+            </h5>
+            <h5 class="mt-3 text-center">Haz click para comenzar.</h5>
+            <h5 class="mt-3 text-start">Notas:</h5>
+            <ul>
+                <li>Las materias se pueden tachar al hacer click sobre ellas.</li>
+                <li>Las materias con prerrequisitos no se pueden tachar hasta que se aprueben las materias necesarias.</li>
+                <li>Las materias tachadas se pueden destachar haciendo click nuevamente sobre ellas.</li>
+                <li>Se puede hacer click sobre un semestre o un año para tachar todas las materias correspondientes de una sola vez (si cumplen con los prerrequisitos).</li>
+                <li>Las materias tachadas se guardan en el almacenamiento local del navegador, por lo que se mantendrán incluso al recargar la página.</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div id="content" class="blur d-flex flex-column flex-grow-1"></div>
+    <!-- MAIN -->
+    <section class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="row justify-content-center no-gutters">
+            <div class="col">
+                <svg width="1210" height="735" role ="figure">
+                    <title>Malla</title>
+                    <g id="Año1" cursor="pointer" role="heading" aria-level="5" class="year">
+                        <title>Año 1</title>
+                        <rect x="5" y="0" width="210" height="30" fill="gray" class="años"></rect>
+                        <text x="110" y="15" font-weight="bold" fill="white" dominant-baseline="central" text-anchor="middle">Año 1</text>
+                    </g>
+                    <g id="Año2" cursor="pointer" role="heading" aria-level="5" class="year">
+                        <title>Año 2</title>
+                        <rect x="225" y="0" width="210" height="30" fill="gray" class="años"></rect>
+                        <text x="330" y="15" font-weight="bold" fill="white" dominant-baseline="central" text-anchor="middle">Año 2</text>
+                    </g>
+                    <g id="Año3" cursor="pointer" role="heading" aria-level="5" class="year">
+                        <title>Año 3</title>
+                        <rect x="445" y="0" width="210" height="30" fill="gray" class="años"></rect>
+                        <text x="550" y="15" font-weight="bold" fill="white" dominant-baseline="central" text-anchor="middle">Año 3</text>
+                    </g>
+                    <g id="Año4" cursor="pointer" role="heading" aria-level="5" class="year">
+                        <title>Año 4</title>
+                        <rect x="665" y="0" width="210" height="30" fill="gray" class="años"></rect>
+                        <text x="770" y="15" font-weight="bold" fill="white" dominant-baseline="central" text-anchor="middle">Año 4</text>
+                    </g>
+                    <g id="Año5" cursor="pointer" role="heading" aria-level="5" class="year">
+                        <title>Año 5</title>
+                        <rect x="885" y="0" width="210" height="30" fill="gray" class="años"></rect>
+                        <text x="990" y="15" font-weight="bold" fill="white" dominant-baseline="central" text-anchor="middle">Año 5</text>
+                    </g>
+                <rect x="5" y="40" width="1200" height="30" fill="#a6acaf" class ="sem"></rect>
+                <g id="sem1" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 1</title>
+                    <rect cursor="pointer" x="5" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="55" y="55" dominant-baseline="central" text-anchor="middle">I</text>
+                </g>
+                
+                <g cursor="pointer" role="img" class="subject" id="Taller de Tecnologías 1">
+                    <title>Esta materia desarrolla las competencias necesarias para iniciar la vida universitaria: técnicas de estudio, capacidad de trabajo en equipo, apego a normas y estándares, habilidades básicas de comunicación oral y escrita.</title>
+                    <rect x="5" y="80" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="5" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="5" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="55" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="55" dy="-0.6em">Taller de</tspan>
+                        <tspan x="55" dy="1.2em">Tecnologías 1</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Programación 1">
+                    <title>El objetivo de la asignatura es proveer una introducción a la programación.</title>
+                    <rect x="5" y="190" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="5" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="5" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="55" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="55" dy="-0.6em">Programación</tspan>
+                        <tspan x="55" dy="1.2em">1</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Álgebra Lineal">
+                    <title>Estudiar el álgebra matricial y los espacios vectoriales con sus aplicaciones. Desarrollar la capacidad de analizar, plantear y resolver problemas en estas temáticas.</title>
+                    <rect x="5" y="300" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="5" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="5" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="55" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="55" dy="-0.6em">Álgebra</tspan>
+                        <tspan x="55" dy="1.2em">lineal</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Cálculo en una variable">
+                    <title>El objetivo de esta materia es revisar los conceptos del cálculo diferencial e integral en una variable y complementarlos. Desarrollar la capacidad de analizar, plantear y resolver problemas en estas temáticas.</title>
+                    <rect x="5" y="410" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="5" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="5" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="55" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="55" dy="-0.6em">Cálculo en</tspan>
+                        <tspan x="55" dy="1.2em">una variable</tspan>
+                    </text>
+                </g>
+
+                <g id="sem2" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 2</title>
+                    <rect cursor="pointer" x="115" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="165" y="55" dominant-baseline="central" text-anchor="middle">II</text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Fundamentos de Computación">
+                    <title>El objetivo central de este curso es que el estudiante establezca la relación fundamental existente entre matemática y programación y profundice en ella.</title>
+                    <rect x="115" y="80" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="115" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="115" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="165" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="165" dy="-0.6em">Fund. de</tspan>
+                        <tspan x="165" dy="1.2em">Computación</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Programación 2">
+                    <title>Esta materia tiene como objetivo continuar la formación en el área de programación, con fuerte énfasis en la programación orientada a objetos y en el desarrollo de algoritmia más avanzada. El objetivo es desarrollar aplicaciones orientadas a objetos.</title>
+                    <rect x="115" y="190" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="115" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="115" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="165" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="165" dy="-0.6em">Programación</tspan>
+                        <tspan x="165" dy="1.2em">2</tspan>
+                    </text>
+                </g>
+                <g cursor="pointer" role="img" class="subject" id="Matemática Discreta">
+                    <title>El objetivo de esta materia es capacitar al estudiante en temas fundamentales de Matemática Discreta que tengan aplicación en la computación. Desarrollar la capacidad de analizar, plantear y resolver problemas en estas temáticas.</title>
+                    <rect x="115" y="300" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="115" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="115" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="165" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="165" dy="-0.6em">Matemática</tspan>
+                        <tspan x="165" dy="1.2em">Discreta</tspan>
+                    </text>
+                </g>
+                <g cursor="pointer" role="img" class="subject" id="Fundamentos de sistemas ciberfísicos">
+                    <title>Desarrollar capacidades para el entendimiento y la aplicación de la física en el área de la ingeniería en sistemas. Aprender a analizar los conceptos físicos, las herramientas matemáticas, desarrollar habilidades de programación de simulación del mundo real, así como el manejo de los distintos sensores y periféricos necesarios, en la implementación de la tecnología, visando a la programación de sistemas reales automatizados.</title>
+                    <rect x="115" y="410" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="115" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="115" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="165" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="165" dy="-1.2em">Fundamentos</tspan>
+                        <tspan x="165" dy="1.2em">de sistemas</tspan>
+                        <tspan x="165" dy="1.2em">ciberfísicos</tspan>
+                    </text>
+                </g>
+
+                <g id="sem3" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 3</title>
+                    <rect cursor="pointer" x="225" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="275" y="55" dominant-baseline="central" text-anchor="middle">III</text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Lógica para Computación">
+                    <title>La Lógica es el estudio de las formas de razonamiento válido. En este curso ese estudio se realiza mediante la formulación y análisis de lenguajes formales que permiten expresar proposiciones y demostraciones.</title>
+                    <rect x="225" y="80" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="225" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="225" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="275" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="275" dy="-0.6em">Lógica para</tspan>
+                        <tspan x="275" dy="1.2em">Computación</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Estructura de datos y algoritmos 1">
+                    <title>El objetivo de esta materia es que el estudiante aprenda las técnicas fundamentales de diseño y análisis de algoritmos y de estructuras de datos.</title>
+                    <rect x="225" y="190" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="225" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="225" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="275" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="275" dy="-1.2em">Estruc. de</tspan>
+                        <tspan x="275" dy="1.2em">datos y </tspan>
+                        <tspan x="275" dy="1.2em">algoritmos 1</tspan>
+                    </text>
+                </g>
+                
+                <g cursor="pointer" role="img" class="subject" id="Arquitectura de sistemas">
+                    <title>El objetivo de esta asignatura es comprender la organización y funcionamiento a bajo nivel de los sistemas informáticos, entender la interacción entre sus componentes físicos básicos y analizar el lenguaje de bajo nivel en el que se pueden programar.</title>
+                    <rect x="225" y="300" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="225" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="225" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="275" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="275" dy="-0.6em">Arquitectura</tspan>
+                        <tspan x="275" dy="1.2em">de sistemas</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Probabilidad y Estadística">
+                    <title>El objetivo de esta materia es estudiar los elementos de la teoría de las probabilidades e introducir al análisis estadístico. Desarrollar la capacidad de analizar, plantear y resolver problemas en estas temáticas.</title>
+                    <rect x="225" y="410" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="225" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="225" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="275" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="275" dy="-0.6em">Probabilidad</tspan>
+                        <tspan x="275" dy="1.2em">y Estadística</tspan>
+                    </text>
+                </g>
+
+                <g id="sem4" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 4</title>
+                    <rect cursor="pointer" x="335" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="385" y="55" dominant-baseline="central" text-anchor="middle">IV</text>
+                </g>
+                
+                <g cursor="pointer" role="img" class="subject" id="Fundamentos de ingeniería de software">
+                    <title>Se estudiarán métodos y prácticas para la identificación de problemas y el desarrollo de soluciones de software, aspectos de usabilidad, control de cambios, métricas y pruebas del software. A su vez se introducen las principales tecnologías de apoyo a las actividades del proceso de desarrollo estudiadas.</title>
+                    <rect x="335" y="80" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="335" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="335" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="385" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="385" dy="-1.2em">Fund. de</tspan>
+                        <tspan x="385" dy="1.2em">ingeniería de</tspan>
+                        <tspan x="385" dy="1.2em">software</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Estructura de datos y algoritmos 2">
+                    <title>El objetivo de esta materia es que el estudiante aplique técnicas fundamentales y avanzadas de diseño y análisis de algoritmos y estructuras de datos en la implementación de soluciones de porte significativo.</title>
+                    <rect x="335" y="190" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="335" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="335" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="385" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="385" dy="-1.2em">Estruc. de</tspan>
+                        <tspan x="385" dy="1.2em">datos y </tspan>
+                        <tspan x="385" dy="1.2em">algoritmos 2</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Bases de datos 1">
+                    <title>El objetivo de esta materia es diseñar bases de datos a nivel conceptual y lógico, expresar consultas usando los lenguajes de consulta teóricos, y desarrollar habilidades de uso del lenguaje estándar SQL.</title>
+                    <rect x="335" y="300" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="335" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="335" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="385" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="385" dy="-0.6em">Bases de</tspan>
+                        <tspan x="385" dy="1.2em">datos 1</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Sistemas operativos">
+                    <title>Esta asignatura comprende el estudio del nivel más bajo de software en los sistemas informáticos. Se trabaja de forma amplia en torno al concepto de gestión de recursos, analizando sistemas operativos y sistemas de tiempo real y contrastando diferencias.</title>
+                    <rect x="335" y="410" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="335" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="335" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="385" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="385" dy="-0.6em">Sistemas</tspan>
+                        <tspan x="385" dy="1.2em">operativos</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Matemática">
+                    <title>Esta área temática tiene como fin brindar los fundamentos teóricos y científicos para plantear y resolver problemas, así como para modelar y representar conceptos abstractos e incorporar herramientas matemáticas y métodos deductivos para la resolución de problemas científicos, utilizando capacidad analítica e innovación.</title>
+                    <rect x="335" y="520" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="335" y="520" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="335" y="600" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="385" y="570" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="385" dy="-0.6em">Materia</tspan>
+                        <tspan x="385" dy="1.2em">de Matemática</tspan>
+                    </text>
+                </g>
+
+                <g id="sem5" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 5</title>
+                    <rect cursor="pointer" x="445" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="495" y="55" dominant-baseline="central" text-anchor="middle">V</text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Teoría de la computación">
+                    <title>El objetivo de este curso es que los estudiantes adquieran un conocimiento de modelos clásicos de computabilidad algorítmica y su empleo.</title>
+                    <rect x="445" y="80" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="445" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="445" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="495" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="495" dy="-0.6em">Teoría de la</tspan>
+                        <tspan x="495" dy="1.2em">computación</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Diseño de aplicaciones 1">
+                    <title>Esta asignatura introduce las actividades de análisis, diseño y codificación de sistemas de software en el marco de un proceso de desarrollo.</title>
+                    <rect x="445" y="190" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="445" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="445" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="495" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="495" dy="-0.6em">Diseño de</tspan>
+                        <tspan x="495" dy="1.2em">aplicaciones 1</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Bases de datos 2">
+                    <title>El objetivo de esta materia es explicar el funcionamiento de los Sistemas Gerenciadores de Bases de Datos (SGBD), contemplando distintos modelos de datos. Comparar las estrategias empleadas por el SGBD para el procesamiento de consultas y transacciones.</title>
+                    <rect x="445" y="300" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="445" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="445" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="495" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="495" dy="-0.6em">Bases de</tspan>
+                        <tspan x="495" dy="1.2em">datos 2</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Redes">
+                    <title>El objetivo de esta asignatura es estudiar los principales conceptos, protocolos y técnicas actuales de transmisión de datos, partiendo de mecanismos familiares y cotidianos e incorporando gradualmente nuevos elementos hasta alcanzar un panorama completo del mundo de las redes IP. Asimismo se desarrollan habilidades de configuración de dispositivos y aplicaciones y análisis de su funcionamiento.</title>
+                    <rect x="445" y="410" width="100" height="100" fill="#14707B"></rect>
+                    <rect x="445" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="445" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="495" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="495" dy="-0.6em">Redes</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Ciencas sociales">
+                    <title>En el área se ofrecen asignaturas que facilitan la comprensión del entorno administrativo y económico en el cual se ejerce la profesión.</title>
+                    <rect x="445" y="520" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="445" y="520" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="445" y="600" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="495" y="570" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="495" dy="-0.6em">Materia de</tspan>
+                        <tspan x="495" dy="1.2em">Cien. sociales</tspan>
+                    </text>
+                </g>
+
+                <g id="sem6" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 6</title>
+                    <rect cursor="pointer" x="555" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="605" y="55" dominant-baseline="central" text-anchor="middle">VI</text>
+                </g>
+
+
+                <g cursor="pointer" role="img" class="subject" id="Ingeniería de software ágil 1">
+                    <title>Esta asignatura se focaliza en la comprensión y aplicación de procesos de gestión ágil, los cuales se orientan a proyectos que se ejecutan en contextos cambiantes y mediante equipos de desarrollo auto-gestionados.</title>
+                    <rect x="555" y="80" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="555" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="555" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="605" y="130" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="605" dy="-0.6em">Ingeniería de</tspan>
+                        <tspan x="605" dy="1.2em">software ágil 1</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Diseño de aplicaciones 2">
+                    <title>Durante este curso se profundiza y aplican los conceptos estudiados en el curso Diseño de Aplicaciones 1 mediante la introducción de conceptos avanzados de análisis y diseño.</title>
+                    <rect x="555" y="190" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="555" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="555" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="605" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="605" dy="-0.6em">Diseño de</tspan>
+                        <tspan x="605" dy="1.2em">aplicaciones 2</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Taller de tecnologías 2">
+                    <title>Esta asignatura tiene como objetivo facilitar la integración de los temas y enfoques de las distintas asignaturas tratadas hasta el momento en la carrera, aplicando herramientas de diseño y análisis a situaciones y problemas del mundo real con el fin de desarrollar y ejercitar a los estudiantes en habilidades de comunicación y trabajo en grupos multidisciplinarios.</title>
+                    <rect x="555" y="300" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="555" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="555" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="605" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="605" dy="-0.6em">Taller de</tspan>
+                        <tspan x="605" dy="1.2em">tecnologías 2</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Programación de redes">
+                    <title>El objetivo de este curso es presentar los mecanismos y las tecnologías disponibles para comunicación entre procesos, programación multi-hilos, y elementos de seguridad asociados al desarrollo de aplicaciones interoperables. Se trabaja con estudios de caso sobre diferentes plataformas y tecnologías de conectividad entre procesos.</title>
+                    <rect x="555" y="410" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="555" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="555" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="605" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="605" dy="-0.6em">Programación</tspan>
+                        <tspan x="605" dy="1.2em">de redes</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Sistemas Inteligentes">
+                    <title>Estos contenidos incluyen los principios básicos de la inteligencia artificial, y los conceptos teórico-prácticos de aprendizaje automático (machine learning, deep learning), optimización y análisis predictivo.</title>
+                    <rect x="555" y="520" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="555" y="520" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="555" y="600" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="605" y="570" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="605" dy="-1.2em">Materia de</tspan>
+                        <tspan x="605" dy="1.2em">Sistemas</tspan>
+                        <tspan x="605" dy="1.2em">Inteligentes</tspan>
+                    </text>
+                </g>
+
+                <g id="sem7" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 7</title>
+                    <rect cursor="pointer" x="665" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="715" y="55" dominant-baseline="central" text-anchor="middle">VII</text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de comunicación y negociación">
+                    <title>En esta área se procura desarrollar habilidades esenciales para articular el pensamiento y las ideas de forma efectiva en la resolución de problemas, como la comunicación, la negociación y la colaboración en diferentes contextos de trabajo en equipo.</title>
+                    <rect x="665" y="80" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="665" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="665" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="715" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="715" dy="-1.2em">Materia de </tspan>
+                        <tspan x="715" dy="1.2em">comunicación</tspan>
+                        <tspan x="715" dy="1.2em">y negociación</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Ingeniería de software ágil 2">
+                    <title>En este curso se profundiza los conceptos presentados en el curso Ingeniería de Software Ágil 1, haciendo énfasis en la comprensión y aplicación de conceptos sobre calidad, mantenimiento, evolución del software y la relación entre las actividades de desarrollo y operación (DevOps).</title>
+                    <rect x="665" y="190" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="665" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="665" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="715" y="240" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="715" dy="-0.6em">Ingeniería de</tspan>
+                        <tspan x="715" dy="1.2em">software ágil 2</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Arquitectura de software">
+                    <title>Brinda una visión completa del proceso de ingeniería del software, hace énfasis en el proceso de diseño arquitectónico y sienta las bases para los temas que se profundizarán en el curso Arquitectura de Software en la Práctica.</title>
+                    <rect x="665" y="300" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="665" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="665" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="715" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="715" dy="-0.6em">Arquitectura</tspan>
+                        <tspan x="715" dy="1.2em">de software</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Gestión de la información">
+                    <title>La gestión de la información se ocupa de la representación, organización, transformación y presentación de la información; de la aplicación de algoritmos para el efectivo y eficiente acceso a información; del modelado y abstracción de datos; y de las técnicas de almacenamiento.</title>
+                    <rect x="665" y="410" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="665" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="665" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="715" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="715" dy="-1.2em">Materia de</tspan>
+                        <tspan x="715" dy="1.2em">Gestión de la</tspan>
+                        <tspan x="715" dy="1.2em">información</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Seguridad informática">
+                    <title>Las asignaturas dentro de esta área buscan aportar a los estudiantes el conocimiento y las habilidades necesarias para proteger los sistemas informáticos, asegurando la confidencialidad, integridad y disponibilidad de la información allí disponible; proveyendo a los sistemas de mecanismos de autenticación y no repudio, para que sirvan como evidencia del estado pasado y actual de las organizaciones y sus procesos.</title>
+                    <rect x="665" y="520" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="665" y="520" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="665" y="600" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="715" y="570" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="715" dy="-1.2em">Materia de</tspan>
+                        <tspan x="715" dy="1.2em">Seguridad</tspan>
+                        <tspan x="715" dy="1.2em">informática</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Inteligencia artificial">
+                    <title>La inteligencia artificial tiene como objetivo comprender el pensamiento y la inteligencia en formas que permitan la construcción de sistemas informáticos, que son capaces de razonar en entornos inciertos. Se estudiarán los principales enfoques que se utilizan en una variedad de campos de aplicación.</title>
+                    <rect x="665" y="630" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="665" y="630" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="665" y="710" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="715" y="680" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="715" dy="-0.6em">Inteligencia</tspan>
+                        <tspan x="715" dy="1.2em">artificial</tspan>
+                    </text>
+                </g>
+
+                <g id="sem8" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 8</title>
+                    <rect cursor="pointer" x="775" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="825" y="55" dominant-baseline="central" text-anchor="middle">VIII</text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Innovación y emprendedurismo">
+                    <title>En esta área se procura desarrollar la capacidad y efectividad de los estudiantes para desarrollarse en un mundo globalizado donde la clave de competitividad es la innovación.</title>
+                    <rect x="775" y="80" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="775" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="775" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="825" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="825" dy="-1.2em">Materia de</tspan>
+                        <tspan x="825" dy="1.2em">Innovación y</tspan>
+                        <tspan x="825" dy="1.2em">emprendedu.</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Ingeniería de productos de software">
+                    <title>El contenido temático de esta área comprende el conocimiento sobre el conjunto de actividades necesarias para la producción de software de forma correcta y eficiente.</title>
+                    <rect x="775" y="190" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="775" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="775" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="825" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="825" dy="-1.2em">Ingeniería de</tspan>
+                        <tspan x="825" dy="1.2em">productos de</tspan>
+                        <tspan x="825" dy="1.2em">software</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Arquitectura de software en la práctica">
+                    <title>En esta asignatura se profundizan y aplican los conceptos estudiados en el curso Arquitectura de software, focalizándose en tecnologías actuales y emergentes.</title>
+                    <rect x="775" y="300" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="775" y="300" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="775" y="380" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="825" y="350" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="825" dy="-1.2em">Arq. de</tspan>
+                        <tspan x="825" dy="1.2em">software en</tspan>
+                        <tspan x="825" dy="1.2em">la práctica</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de nuevas tecnologías y dominios de aplicación">
+                    <title>En esta área temática se busca desarrollar la capacidad de los estudiantes para resolver problemas en el contexto de nuevas tecnologías.</title>
+                    <rect x="775" y="410" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="775" y="410" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="775" y="490" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="825" y="460" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="825" dy="-1.2em">Nue. tec.</tspan>
+                        <tspan x="825" dy="1.2em">y dominios de</tspan>
+                        <tspan x="825" dy="1.2em">aplicación</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Trabajo integrador">
+                    <title>El objetivo de esta asignatura es completar la formación del estudiante mediante la realización de un trabajo que le permita integrar y consolidar los conocimientos adquiridos en diversas disciplinas.</title>
+                    <rect x="775" y="520" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="775" y="520" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="775" y="600" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="825" y="570" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="825" dy="-0.6em">Trabajo</tspan>
+                        <tspan x="825" dy="1.2em">integrador</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Lenguajes de programación">
+                    <title>Los contenidos de esta área están orientados a desarrollar los conceptos que permitan a los estudiantes aprender los criterios que permiten diseñar y evaluar algoritmos y estructuras de datos apropiados para la resolución de distintos tipos de problemas relacionados con la construcción de productos de software, así como también los aspectos básicos sobre las características de los distintos paradigmas y los fundamentos de diseño en los cuales se basan los principales lenguajes de programación.</title>
+                    <rect x="775" y="630" width="100" height="100" fill="#275F5F"></rect>
+                    <rect x="775" y="630" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="775" y="710" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="825" y="680" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="825" dy="-0.6em">Mat. de Leng</tspan>
+                        <tspan x="825" dy="1.2em">programación</tspan>
+                    </text>
+                </g>
+
+                <g id="sem9" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 9</title>
+                    <rect cursor="pointer" x="885" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="935" y="55" dominant-baseline="central" text-anchor="middle">IX</text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Materia de Comunicación y negociación">
+                    <title>En esta área se procura desarrollar habilidades esenciales para articular el pensamiento y las ideas de forma efectiva en la resolución de problemas, como la comunicación, la negociación y la colaboración en diferentes contextos de trabajo en equipo.</title>
+                    <rect x="885" y="80" width="100" height="100" fill="#1C3737"></rect>
+                    <rect x="885" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="885" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="935" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="935" dy="-1.2em">Mat. de </tspan>
+                        <tspan x="935" dy="1.2em">Comunicación</tspan>
+                        <tspan x="935" dy="1.2em">y negociación</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Electiva 1">
+                    <title>Los estudiantes completan su formación seleccionando tres asignaturas electivas a cursar en el marco de un perfil profesional y podrán ajustar su perfil de egreso de acuerdo a sus preferencias y a las características del mercado de trabajo al cual apunten.</title>
+                    <rect x="885" y="190" width="100" height="100" fill="#1C3737"></rect>
+                    <rect x="885" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="885" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="935" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="935" dy="-0.6em">Electiva</tspan>
+                        <tspan x="935" dy="1.2em">1</tspan>
+                    </text>
+                </g>
+
+                <g id="sem10" cursor="pointer" width="100" height="30" role="heading" aria-level="6" class="sem">
+                    <title>Semestre 10</title>
+                    <rect cursor="pointer" x="995" y="40" width="100" height="30" class="sem" fill="#a6acaf"></rect>
+                    <text x="1045" y="55" dominant-baseline="central" text-anchor="middle">X</text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Electiva 2">
+                    <title>Los estudiantes completan su formación seleccionando tres asignaturas electivas a cursar en el marco de un perfil profesional y podrán ajustar su perfil de egreso de acuerdo a sus preferencias y a las características del mercado de trabajo al cual apunten.</title>
+                    <rect x="995" y="80" width="100" height="100" fill="#1C3737"></rect>
+                    <rect x="995" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="995" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="1045" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                        <tspan x="1045" dy="-0.6em">Electiva</tspan>
+                        <tspan x="1045" dy="1.2em">2</tspan>
+                    </text>
+                </g>
+
+                <g cursor="pointer" role="img" class="subject" id="Electiva 3">
+                    <title>Los estudiantes completan su formación seleccionando tres asignaturas electivas a cursar en el marco de un perfil profesional y podrán ajustar su perfil de egreso de acuerdo a sus preferencias y a las características del mercado de trabajo al cual apunten.</title>
+                    <rect x="995" y="190" width="100" height="100" fill="#1C3737"></rect>
+                    <rect x="995" y="190" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <rect x="995" y="270" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                    <text x="1045" y="240" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white" font-weight="bold">
+                        <tspan x="1045" dy="-0.6em">Electiva</tspan>
+                        <tspan x="1045" dy="1.2em">3</tspan>
+                    </text>
+                </g>
+
+            <g cursor="pointer" role="img" class ="subject" id="Proyecto">
+                <title>La realización de un proyecto final enfrenta al estudiante a la problemática de resolver todos los pasos involucrados en la construcción de un producto de software, desde la detección de oportunidades y necesidades hasta la implementación definitiva de un sistema, representando para el estudiante el desafío de crear un proyecto original y ponerlo en práctica.</title>
+                <rect x="1105" y="80" width="100" height="100" fill="#1C3737"></rect>
+                <rect x="1105" y="80" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                <rect x="1105" y="160" width="100" height="20" fill="#6D6E71" class="bars"></rect>
+                <text x="1155" y="130" font-size="14" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="bold">
+                    <tspan x="1155" dy="-0.6em">Proyecto</tspan>
+                    <tspan x="1155" dy="1.2em">final</tspan>
+                </text>
+            </g>
+            </svg>
+            <div class = "d-flex justify-content-center gap-3 mt-3">
+                <div class="d-flex gap-2">
+                    <p id="AIng" class="box">Ayudante de Ingeniero en Sistemas</p>
+                    <p id="LicEIng" class ="box">Licenciado/a en Ingeniería de Software</p>
+                    <p id="IngSistemas" class ="box">Ingeniero/a en Sistemas</p>
+                </div>
+                <button class ="btn btn-outline-light border-dark" id="btnReset">Reiniciar Malla</button>
+            </div>    
+        </div>
+    </div>
+</section>
+<script src="./js/Funciones.js"></script>
+</body>
+</html>
