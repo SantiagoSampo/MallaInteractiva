@@ -5,6 +5,15 @@
   -ms-user-select: none;
 }
 
+/* Mejorar el scroll táctil en dispositivos móviles */
+svg {
+  touch-action: pan-x pan-y;
+}
+
+g.subject, g.sem, g.year {
+  touch-action: manipulation;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -183,6 +192,16 @@ g.subject.disabled text {
   svg {
     min-width: 1210px !important;
     width: 1210px !important;
+    touch-action: pan-x pan-y; /* Permite scroll horizontal y vertical */
+  }
+  
+  /* Permitir scroll en las materias y elementos SVG */
+  g.subject {
+    touch-action: manipulation; /* Permite scroll pero mantiene la funcionalidad de tap */
+  }
+  
+  g.sem, g.year {
+    touch-action: manipulation; /* Permite scroll en semestres y años */
   }
   
   /* Asegurar que el overlay no interfiera con el scroll */
@@ -207,5 +226,13 @@ g.subject.disabled text {
   .container-fluid {
     min-width: 1220px !important;
     width: 1220px !important;
+  }
+  
+  svg {
+    touch-action: pan-x pan-y;
+  }
+  
+  g.subject, g.sem, g.year {
+    touch-action: manipulation;
   }
 }
