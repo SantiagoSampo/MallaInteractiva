@@ -1,4 +1,4 @@
-/* GLOBAL */
+
 * {
   user-select: none;
   -webkit-user-select: none;
@@ -6,7 +6,7 @@
   touch-action: manipulation;
 }
 
-/* Mejorar el scroll táctil en dispositivos móviles */
+
 svg {
   touch-action: pan-x pan-y;
 }
@@ -66,15 +66,15 @@ li {
   text-align: left;
 }
 
-/* OVERLAY INTERACTIVO */
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;        /* ← CAMBIO: reemplaza 100vw */
-  height: 100%;       /* ← CAMBIO: reemplaza 100vh */
-  inset: 0;           /* ← opcional, asegura top/left/right/bottom 0 */
-  max-width: 100%;    /* ← evita que desborde si el body es más ancho */
+  width: 100%;        
+  height: 100%;      
+  inset: 0;           
+  max-width: 100%;    
   z-index: 999;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(5px);
@@ -107,7 +107,7 @@ li {
   user-select: auto;
 }
 
-/* FALLBACK sin soporte de blur */
+
 @supports not ((-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px))) {
   .overlay {
     background-color: rgba(255,255,255,0.85);
